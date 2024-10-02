@@ -1,4 +1,4 @@
-# Setting Up Apache 2, MariaDB, and PHP on Raspberry Pi
+# Setting Up Apache 2, MariaDB, and PHP on Raspberry Pi Linux
 
 ## Part 1: Installing Apache 2
 
@@ -26,6 +26,9 @@ After installation, check if Apache is running:
 sudo systemctl status apache2
 ```
 You should see output indicating that Apache is active (running). You can also verify it by opening a web browser and navigating to `http://<your_pi_ip_address>/`. You should see the default Apache page.
+```bash
+hostname -I
+```
 
 ### 5. Adjust Firewall Settings (if necessary)
 If you have a firewall running, you need to allow HTTP and HTTPS traffic:
