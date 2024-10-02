@@ -45,10 +45,3 @@
 8. **Database Design:**
    - A well-structured relational database that handles user accounts and game results.
    - Appropriate tables to manage users and game sessions.
-
-## Documentation
-- **README File:** Provides instructions for installation and usage of the web application.
-- **Implementation Report:** Details the contributions of each team member, tasks completed weekly, and overall project development.
-
-## Conclusion
-This Minesweeper project offers an opportunity to integrate various web technologies and concepts learned in class. By focusing on both the front-end user experience and back-end data management, students will develop a comprehensive understanding of web programming and database interactions. The project encourages teamwork and creativity, allowing for customization and enhancement of classic game mechanics.
