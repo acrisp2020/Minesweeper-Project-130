@@ -38,7 +38,7 @@
    - Functions to determine win/loss conditions and track game time.
 
 7. **Server-Side Development:**
-   - PHP scripts to create and manage the relational database.
+   - PHP scripts to submit and retrieve data from the relational database.
    - Tables to store game results and user information.
    - APIs to retrieve and display data on the client side.
 
