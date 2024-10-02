@@ -26,6 +26,7 @@ After installation, check if Apache is running:
 sudo systemctl status apache2
 ```
 You should see output indicating that Apache is active (running). You can also verify it by opening a web browser and navigating to `http://<your_pi_ip_address>/`. You should see the default Apache page.
+
 To get Pi Ip address:
 ```bash
 hostname -I
