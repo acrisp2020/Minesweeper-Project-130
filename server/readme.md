@@ -1,4 +1,3 @@
-```markdown
 # Setting Up Apache 2, MariaDB, and PHP on Raspberry Pi
 
 ## Part 1: Installing Apache 2
