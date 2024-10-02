@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Default Light Gray Background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+#board {
+    display: grid;
+    grid-gap: 2px;
+    max-height: 80vh; /* Limit the height of the board */
+    overflow: auto; /* Allow scrolling if the board is too tall */
+}
+
+/* Tile Styles */
+.tile {
+    width: 40px;
+    height: 40px;
+    background-color: #ddd; /* Default Tile Color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tile.revealed {
+    background-color: #fff; /* White when revealed */
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.tile.mine {
+    background-color: red; /* Color for mines when revealed */
+}
+
+.tile.exploding {
+    animation: explode 0.5s forwards; /* Animation effect */
+}
+
+/* Options Menu */
+#optionsMenu {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Additional Theme Styles */
+.tile:hover {
+    opacity: 0.8; /* Slightly fade tiles on hover */
+}
+
+/* Theme Classes (to be added) */
+
+
+/* Dark Theme */
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.tile.dark {
+    background-color: #1e1e1e;
+}
+
+/* Nature Theme */
+body.nature {
+    background-color: #4caf50; 
+    color: #ffffff;
+}
+
+.tile.nature {
+    background-color: #2e7d32;
+}
+
+/* Ocean Theme */
+body.ocean {
+    background-color: #0288d1;
+    color: #ffffff;
+}
+
+.tile.ocean {
+    background-color: #01579b;
+}
+
+/* Sunset Theme */
+body.sunset {
+    background-color: #ff7043;
+    color: #ffffff;
+}
+
+.tile.sunset {
+    background-color: #d84315; /* Darker orange for the tiles */
+}

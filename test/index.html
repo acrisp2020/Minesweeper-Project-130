@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper Game</title>
+    <link rel="stylesheet" href="style.css" id="themeStylesheet">
+</head>
+<body>
+    <!-- Optional: Include a script to check if the user is logged in (client-side) -->
+    <script>
+        // Optional: Check if the user is logged in, if using client-side authentication (depends on your setup)
+        // You might also handle this check on the server-side via PHP or another backend framework.
+        /*
+        if (!sessionStorage.getItem('loggedIn')) {
+            window.location.href = 'login.html'; // Redirect to login if not authenticated
+        }
+        */
+    </script>
+
+    <div class="container">
+        <h1>Minesweeper</h1>
+        
+        <div id="board"></div>
+        
+        <button id="startBtn">Start Game</button>
+        <button id="themeBtn">Switch Theme</button>
+        <button id="optionsBtn">Options</button>
+
+        <!-- Options Menu (Initially Hidden) -->
+        <div id="optionsMenu" class="hidden">
+            <h2>Options</h2>
+            <div>
+                <label for="numMines">Select Number of Mines:</label>
+                <input type="number" id="numMines" min="1" max="99" value="10">
+            </div>
+            <div>
+                <label>Win Condition:</label>
+                <div>
+                    <input type="radio" name="winCondition" value="clear" checked> Clear the whole grid
+                </div>
+                <div>
+                    <input type="radio" name="winCondition" value="select"> Correctly select all the mines
+                </div>
+            </div>
+            <div>
+                <label for="firstMove">First Move Safe:</label>
+                <input type="checkbox" id="firstMove" checked>
+            </div>
+            <div>
+                <label for="gridSize">Select Grid Size:</label>
+                <select id="gridSize">
+                    <option value="10">Easy (10x10, 10 mines)</option>
+                    <option value="15">Medium (15x15, 40 mines)</option>
+                    <option value="20">Hard (20x20, 99 mines)</option>
+                </select>
+            </div>
+            <button id="applyOptions">Apply</button>
+            <button id="closeOptions">Close</button>
+        </div>
+
+        <!-- Game Info (Timer, Mine Count) -->
+        <div id="info">
+            <p>Time: <span id="time">0</span> seconds</p>
+            <p>Mines: <span id="minesCount">0</span></p>
+        </div>
+
+        <!-- Audio Elements for Sounds -->
+        <audio id="gameMusic" src="music.mp3" loop></audio>
+        <audio id="mineSound" src="mine.wav"></audio>
+        <audio id="winSound" src="win.wav"></audio>
+    </div>
+
+    <!-- Script to manage the Minesweeper game logic -->
+    <script src="minesweeper.js"></script>
+</body>
+</html>
