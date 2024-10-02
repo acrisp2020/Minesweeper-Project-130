@@ -27,7 +27,7 @@ sudo systemctl status apache2
 ```
 You should see output indicating that Apache is active (running). You can also verify it by opening a web browser and navigating to `http://<your_pi_ip_address>/`. You should see the default Apache page.
 
-To get Pi Ip address:
+Command to get PI IP Address:
 ```bash
 hostname -I
 ```
@@ -38,7 +38,7 @@ If you have a firewall running, you need to allow HTTP and HTTPS traffic:
 sudo ufw allow 'Apache Full'
 ```
 
-### 6. Configure Virtual Hosts (Optional)
+### 6. Configure Virtual Hosts
 If you want to host multiple websites on your Raspberry Pi, you can set up virtual hosts.
 
 1. **Create a Directory for Your Website:**
@@ -199,9 +199,3 @@ To verify that the database is working correctly, you can create a simple PHP sc
 
 3. **Access the Test Page:**
    Open a web browser and navigate to `http://<your_pi_ip>/test_db.php`. You should see "Connected successfully" if everything is set up correctly.
-
-## Summary
-You now have a functioning Apache web server, a secure MariaDB database server, and PHP support on your Raspberry Pi. You can expand on this setup by adding additional features, configuring SSL, or hosting multiple websites based on your needs. Let me know if you need more help!
-```
-
-Feel free to copy and paste this Markdown text into your preferred editor or documentation tool! Let me know if you need any further modifications.
