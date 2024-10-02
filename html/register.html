@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h2>Register</h2>
+    <form method="post" action="">
+        Username: <input type="text" name="username" required><br>
+        Email: <input type="email" name="email" required><br>
+        Password: <input type="password" name="password" required><br>
+        <input type="submit" value="Register">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password for security
+
+        // Database connection
+        $conn = new mysqli('localhost', 'root', 'new_password', 'user_accounts');
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Check if the username or email already exists
+        $sql_check = "SELECT * FROM account_info WHERE username = ? OR email = ?";
+        $stmt_check = $conn->prepare($sql_check);
+        $stmt_check->bind_param("ss", $username, $email);
+        $stmt_check->execute();
+        $result = $stmt_check->get_result();
+
+        if ($result->num_rows > 0) {
+            // Username or email already exists, show error message with login link
+            echo "<p style='color: red;'>Error: Username or Email already exists. Please <a href='index.html'>login</a>.</p>";
+        } else {
+            // Insert user data into the database if username and email are unique
+            $sql_insert = "INSERT INTO account_info (username, email, password) VALUES (?, ?, ?)";
+            $stmt_insert = $conn->prepare($sql_insert);
+            $stmt_insert->bind_param("sss", $username, $email, $password);
+
+            if ($stmt_insert->execute()) {
+                // Redirect to the main webpage after success
+                header("Location: /main_page.php");
+                exit();
+            } else {
+                echo "<p style='color: red;'>Error: " . $conn->error . "</p>";
+            }
+
+            $stmt_insert->close();
+        }
+
+        $stmt_check->close();
+        $conn->close();
+    }
+    ?>
+</body>
+</html>
